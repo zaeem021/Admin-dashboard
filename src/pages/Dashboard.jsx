@@ -109,7 +109,7 @@ const Dashboard = () => {
                 <section className="space-y-4 h-full flex flex-col">
                     <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Quick Actions</h2>
                     <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex-1 flex flex-col justify-center min-h-[250px]">
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <button className="p-4 rounded-xl bg-blue-50 text-blue-700 font-bold md:hover:bg-blue-100 transition-all duration-200 flex flex-col items-center justify-center space-y-3 group active:scale-95 h-full">
                                 <div className="p-2 bg-white rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
                                     <Users className="w-5 h-5" />

@@ -11,6 +11,11 @@ import {
 } from 'lucide-react';
 
 const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobileOpen }) => {
+    const location = useLocation();
+
+    // Show labels if not collapsed, or if it's mobile view (even if collapsed)
+    const showLabels = !isCollapsed || isMobileOpen;
+
     const menuItems = [
         { name: 'Dashboard', icon: LayoutDashboard, path: '/' },
         { name: 'Users', icon: Users, path: '/users' },
@@ -87,27 +92,29 @@ const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobileOpen })
                             Main Menu
                         </p>
                     )}
-                    <div className="flex flex-col space-y-2">
+                    <div className="flex flex-col space-y-4">
                         {menuItems.map((item) => (
                             <NavLink
                                 key={item.path}
                                 to={item.path}
                                 onClick={closeMobileMenu}
                                 className={({ isActive }) =>
-                                    `flex items-center space-x-3.5 px-3.5 py-3 rounded-xl transition-all duration-200 group relative min-h-[48px]
+                                    `flex items-center space-x-4 px-4 py-3.5 rounded-2xl transition-all duration-200 group relative min-h-[52px]
                                     ${isActive
                                         ? 'bg-blue-600 shadow-lg shadow-blue-600/20 text-white font-bold'
                                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/40 hover:text-slate-900 dark:hover:text-slate-200'
                                     }
-                                    ${isCollapsed ? 'justify-center px-0' : ''}
+                                    ${isCollapsed && !isMobileOpen ? 'justify-center px-0' : ''}
                                     `
                                 }
                             >
                                 {({ isActive }) => (
                                     <>
-                                        <item.icon className={`w-5 h-5 flex-shrink-0 transition-colors ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300'}`} />
-                                        {!isCollapsed && <span className="text-sm tracking-tight">{item.name}</span>}
-                                        {isActive && isCollapsed && (
+                                        <div className="w-6 h-6 flex items-center justify-center flex-shrink-0">
+                                            <item.icon className={`w-5 h-5 transition-colors ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300'}`} />
+                                        </div>
+                                        {showLabels && <span className="text-sm tracking-tight">{item.name}</span>}
+                                        {isActive && isCollapsed && !isMobileOpen && (
                                             <div className="absolute left-0 w-1 h-6 bg-white rounded-r-full" />
                                         )}
                                     </>

@@ -49,8 +49,8 @@ const UsersPage = () => {
         <div className="space-y-6 pb-8">
             {/* Page Header */}
             <div>
-                <h1 className="text-xl md:text-3xl font-black text-slate-900 tracking-tight">Sales Analysis</h1>
-                <p className="text-sm text-slate-500 mt-1">Deep dive into sales performance.</p>
+                <h1 className="text-xl md:text-3xl font-black text-slate-900 tracking-tight">Users</h1>
+                <p className="text-sm text-slate-500 mt-1">Manage your system members.</p>
             </div>
             <Table
                 columns={columns}
