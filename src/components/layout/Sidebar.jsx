@@ -88,20 +88,20 @@ const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobileOpen })
                 {/* Navigation */}
                 <nav className="flex-1 px-4 py-6 space-y-6 overflow-y-auto">
                     {!isCollapsed && (
-                        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 px-3">
+                        <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 px-3 opacity-60">
                             Main Menu
                         </p>
                     )}
-                    <div className="flex flex-col space-y-4">
+                    <div className="flex flex-col space-y-4 md:space-y-1">
                         {menuItems.map((item) => (
                             <NavLink
                                 key={item.path}
                                 to={item.path}
                                 onClick={closeMobileMenu}
                                 className={({ isActive }) =>
-                                    `flex items-center space-x-4 px-4 py-3.5 rounded-2xl transition-all duration-200 group relative min-h-[52px]
+                                    `flex items-center space-x-4 md:space-x-3 px-4 py-3.5 md:px-3 md:py-2.5 rounded-2xl md:rounded-lg transition-all duration-200 group relative min-h-[52px] md:min-h-[auto]
                                     ${isActive
-                                        ? 'bg-blue-600 shadow-lg shadow-blue-600/20 text-white font-bold'
+                                        ? 'bg-blue-50/80 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 font-bold md:font-medium'
                                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/40 hover:text-slate-900 dark:hover:text-slate-200'
                                     }
                                     ${isCollapsed && !isMobileOpen ? 'justify-center px-0' : ''}
@@ -111,11 +111,11 @@ const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobileOpen })
                                 {({ isActive }) => (
                                     <>
                                         <div className="w-6 h-6 flex items-center justify-center flex-shrink-0">
-                                            <item.icon className={`w-5 h-5 transition-colors ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300'}`} />
+                                            <item.icon className={`w-5 h-5 transition-colors ${isActive ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300'}`} />
                                         </div>
                                         {showLabels && <span className="text-sm tracking-tight">{item.name}</span>}
-                                        {isActive && isCollapsed && !isMobileOpen && (
-                                            <div className="absolute left-0 w-1 h-6 bg-white rounded-r-full" />
+                                        {isActive && !isMobileOpen && (
+                                            <div className="absolute left-0 w-1 h-6 md:h-5 bg-blue-600 dark:bg-blue-500 rounded-r-full" />
                                         )}
                                     </>
                                 )}

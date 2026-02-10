@@ -37,9 +37,11 @@ const Layout = ({ children }) => {
                 <Navbar onMenuClick={() => setIsMobileOpen(!isMobileOpen)} />
 
                 {/* Page Content Wrapper */}
-                <main className="w-full max-w-7xl mx-auto px-4 md:px-8 py-6 md:py-8 space-y-6 md:space-y-8">
-                    {children}
-                </main>
+                <div className="flex justify-center w-full">
+                    <main className="w-full max-w-7xl px-4 md:px-8 py-6 md:py-8 space-y-6 md:space-y-8">
+                        {children}
+                    </main>
+                </div>
             </div>
 
         </div>

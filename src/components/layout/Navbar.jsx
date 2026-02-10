@@ -12,7 +12,7 @@ const Navbar = ({ onMenuClick }) => {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={onMenuClick}
-                        className="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-all active:scale-95 text-slate-600"
+                        className="md:hidden p-2 -ml-2 rounded-lg hover:bg-slate-100 transition-all active:scale-95 text-slate-600"
                     >
                         <Menu className="w-6 h-6" />
                     </button>
