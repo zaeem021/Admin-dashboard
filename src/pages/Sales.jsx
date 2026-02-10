@@ -123,7 +123,6 @@ const SalesPage = () => {
             </div>
         </div>
     );
-    );
 };
 
 export default SalesPage;

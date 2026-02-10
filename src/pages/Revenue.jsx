@@ -123,7 +123,6 @@ const RevenuePage = () => {
             </div>
         </div>
     );
-    );
 };
 
 export default RevenuePage;
