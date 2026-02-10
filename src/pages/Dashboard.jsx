@@ -46,99 +46,108 @@ const Dashboard = () => {
     if (error) return <ErrorState onRetry={fetchDashboardData} />;
 
     return (
-        <div className="space-y-8 pb-8">
-            {/* Page Header */}
-            <div>
-                <h1 className="text-xl md:text-3xl font-black text-slate-900 tracking-tight">Analytics Overview</h1>
-                <p className="text-sm text-slate-500 mt-1">Monitor your business performance.</p>
-            </div>
-
-            {/* Stats Cards Section */}
-            <section className="space-y-4">
-                <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Key Metrics</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                    <StatsCard
-                        title="Total Users"
-                        value={stats?.totalUsers}
-                        change={12.5}
-                        icon={Users}
-                        iconBgColor="bg-blue-600"
-                    />
-                    <StatsCard
-                        title="Total Orders"
-                        value={stats?.totalOrders}
-                        change={-2.4}
-                        icon={ShoppingCart}
-                        iconBgColor="bg-indigo-600"
-                    />
-                    <StatsCard
-                        title="Total Revenue"
-                        value={stats?.totalRevenue ? `$${stats.totalRevenue.toLocaleString()}` : '$0'}
-                        change={18.2}
-                        icon={DollarSign}
-                        iconBgColor="bg-emerald-600"
-                    />
-                    <StatsCard
-                        title="Total Sales"
-                        value={stats?.totalSales}
-                        change={5.7}
-                        icon={TrendingUp}
-                        iconBgColor="bg-rose-600"
-                    />
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-200/60 p-5 md:p-8 animate-fade-in mb-8">
+            <div className="space-y-8">
+                {/* Page Header */}
+                <div className="border-b border-slate-100 pb-6 md:pb-8">
+                    <h1 className="text-xl md:text-3xl font-black text-slate-900 tracking-tight">Analytics Overview</h1>
+                    <p className="text-sm text-slate-500 mt-1">Monitor your business performance.</p>
                 </div>
-            </section>
 
-            {/* Charts Section */}
-            <section className="space-y-4">
-                <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Growth Trends</h2>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <LineChart data={chartData} title="Revenue Timeline" />
-                    <BarChart data={chartData} title="Market Sales Volume" />
-                </div>
-            </section>
-
-            {/* Bottom Section: Distribution & Tools */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* Distribution */}
+                {/* Stats Cards Section */}
                 <section className="space-y-4">
-                    <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Distribution</h2>
-                    <PieChart data={pieData} title="Category Breakdown" />
+                    <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 px-1">Key Metrics</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                        <StatsCard
+                            title="Total Users"
+                            value={stats?.totalUsers}
+                            change={12.5}
+                            icon={Users}
+                            iconBgColor="bg-blue-600"
+                        />
+                        <StatsCard
+                            title="Total Orders"
+                            value={stats?.totalOrders}
+                            change={-2.4}
+                            icon={ShoppingCart}
+                            iconBgColor="bg-indigo-600"
+                        />
+                        <StatsCard
+                            title="Total Revenue"
+                            value={stats?.totalRevenue ? `$${stats.totalRevenue.toLocaleString()}` : '$0'}
+                            change={18.2}
+                            icon={DollarSign}
+                            iconBgColor="bg-emerald-600"
+                        />
+                        <StatsCard
+                            title="Total Sales"
+                            value={stats?.totalSales}
+                            change={5.7}
+                            icon={TrendingUp}
+                            iconBgColor="bg-rose-600"
+                        />
+                    </div>
                 </section>
 
-                {/* Tools & Management */}
-                <section className="space-y-4 h-full flex flex-col">
-                    <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Quick Actions</h2>
-                    <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex-1 flex flex-col justify-center min-h-[250px]">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <button className="p-4 rounded-xl bg-blue-50 text-blue-700 font-bold md:hover:bg-blue-100 transition-all duration-200 flex flex-col items-center justify-center space-y-3 group active:scale-95 h-full">
-                                <div className="p-2 bg-white rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
-                                    <Users className="w-5 h-5" />
-                                </div>
-                                <span className="text-xs">Add User</span>
-                            </button>
-                            <button className="p-4 rounded-xl bg-emerald-50 text-emerald-700 font-bold md:hover:bg-emerald-100 transition-all duration-200 flex flex-col items-center justify-center space-y-3 group active:scale-95 h-full">
-                                <div className="p-2 bg-white rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
-                                    <DollarSign className="w-5 h-5" />
-                                </div>
-                                <span className="text-xs">Invoice</span>
-                            </button>
-                            <button className="p-4 rounded-xl bg-indigo-50 text-indigo-700 font-bold md:hover:bg-indigo-100 transition-all duration-200 flex flex-col items-center justify-center space-y-3 group active:scale-95 h-full">
-                                <div className="p-2 bg-white rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
-                                    <TrendingUp className="w-5 h-5" />
-                                </div>
-                                <span className="text-xs">Reports</span>
-                            </button>
-                            <button className="p-4 rounded-xl bg-rose-50 text-rose-700 font-bold md:hover:bg-rose-100 transition-all duration-200 flex flex-col items-center justify-center space-y-3 group active:scale-95 h-full">
-                                <div className="p-2 bg-white rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
-                                    <Settings className="w-5 h-5" />
-                                </div>
-                                <span className="text-xs">Settings</span>
-                            </button>
+                {/* Charts Section */}
+                <section className="space-y-4">
+                    <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 px-1">Growth Trends</h2>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div className="bg-slate-50/50 p-4 md:p-6 rounded-2xl border border-slate-100">
+                            <LineChart data={chartData} title="Revenue Timeline" />
+                        </div>
+                        <div className="bg-slate-50/50 p-4 md:p-6 rounded-2xl border border-slate-100">
+                            <BarChart data={chartData} title="Market Sales Volume" />
                         </div>
                     </div>
                 </section>
+
+                {/* Bottom Section: Distribution & Tools */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    {/* Distribution */}
+                    <section className="space-y-4">
+                        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 px-1">Distribution</h2>
+                        <div className="bg-slate-50/50 p-4 md:p-6 rounded-2xl border border-slate-100 h-full">
+                            <PieChart data={pieData} title="Category Breakdown" />
+                        </div>
+                    </section>
+
+                    {/* Tools & Management */}
+                    <section className="space-y-4 h-full flex flex-col">
+                        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 px-1">Quick Actions</h2>
+                        <div className="bg-slate-50/50 p-6 rounded-2xl border border-slate-100 flex-1 flex flex-col justify-center min-h-[250px]">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <button className="p-4 rounded-xl bg-white border border-slate-100 text-blue-700 font-bold md:hover:bg-blue-50 md:hover:border-blue-100 transition-all duration-200 flex flex-col items-center justify-center space-y-3 group active:scale-95 h-full shadow-sm">
+                                    <div className="p-2 bg-blue-50 rounded-lg group-hover:bg-white transition-colors">
+                                        <Users className="w-5 h-5 text-blue-600" />
+                                    </div>
+                                    <span className="text-xs">Add User</span>
+                                </button>
+                                <button className="p-4 rounded-xl bg-white border border-slate-100 text-emerald-700 font-bold md:hover:bg-emerald-50 md:hover:border-emerald-100 transition-all duration-200 flex flex-col items-center justify-center space-y-3 group active:scale-95 h-full shadow-sm">
+                                    <div className="p-2 bg-emerald-50 rounded-lg group-hover:bg-white transition-colors">
+                                        <DollarSign className="w-5 h-5 text-emerald-600" />
+                                    </div>
+                                    <span className="text-xs">Invoice</span>
+                                </button>
+                                <button className="p-4 rounded-xl bg-white border border-slate-100 text-indigo-700 font-bold md:hover:bg-indigo-50 md:hover:border-indigo-100 transition-all duration-200 flex flex-col items-center justify-center space-y-3 group active:scale-95 h-full shadow-sm">
+                                    <div className="p-2 bg-indigo-50 rounded-lg group-hover:bg-white transition-colors">
+                                        <TrendingUp className="w-5 h-5 text-indigo-600" />
+                                    </div>
+                                    <span className="text-xs">Reports</span>
+                                </button>
+                                <button className="p-4 rounded-xl bg-white border border-slate-100 text-rose-700 font-bold md:hover:bg-rose-50 md:hover:border-rose-100 transition-all duration-200 flex flex-col items-center justify-center space-y-3 group active:scale-95 h-full shadow-sm">
+                                    <div className="p-2 bg-rose-50 rounded-lg group-hover:bg-white transition-colors">
+                                        <Settings className="w-5 h-5 text-rose-600" />
+                                    </div>
+                                    <span className="text-xs">Settings</span>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
         </div>
+    );
     );
 };
 
