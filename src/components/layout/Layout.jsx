@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
 
                 {/* Page Content Wrapper */}
                 <div className="flex justify-center w-full">
-                    <main className="w-full max-w-7xl p-4 md:p-8 space-y-6 md:space-y-8">
+                    <main className="w-full max-w-7xl px-4 md:px-8 py-6 md:py-8 space-y-6 md:space-y-8">
                         {children}
                     </main>
                 </div>

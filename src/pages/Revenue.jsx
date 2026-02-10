@@ -92,28 +92,28 @@ const RevenuePage = () => {
             {/* Financial Ledger Table */}
             <section className="space-y-4">
                 <div className="flex items-center justify-between px-1">
-                    <h2 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Financial Ledger</h2>
+                    <h2 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">Financial Ledger</h2>
                 </div>
                 <Table
                     columns={columns}
                     data={monthlyBreakdown}
                     renderMobileRow={(entry) => (
-                        <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
+                        <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 mb-4 last:mb-0">
                             <div className="flex justify-between items-center mb-4">
                                 <span className="text-sm font-bold text-slate-900">{entry.month}</span>
                                 <StatusBadge status={entry.status} />
                             </div>
                             <div className="grid grid-cols-2 gap-y-3 pt-4 border-t border-slate-50">
                                 <div>
-                                    <p className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Gross</p>
+                                    <p className="text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em]">Gross</p>
                                     <p className="text-xs font-bold text-slate-700">{entry.gross}</p>
                                 </div>
                                 <div>
-                                    <p className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Net Profit</p>
+                                    <p className="text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em]">Net Profit</p>
                                     <p className="text-xs font-bold text-emerald-600">{entry.net}</p>
                                 </div>
                                 <div>
-                                    <p className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Churn</p>
+                                    <p className="text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em]">Churn</p>
                                     <p className="text-xs font-bold text-rose-500">{entry.churn}</p>
                                 </div>
                             </div>

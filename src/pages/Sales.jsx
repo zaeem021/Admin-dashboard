@@ -97,12 +97,12 @@ const SalesPage = () => {
 
             {/* Top Products Table */}
             <section className="space-y-4">
-                <h2 className="text-xs font-bold text-slate-400 uppercase tracking-widest px-1">Top Performing Products</h2>
+                <h2 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] px-1">Top Performing Products</h2>
                 <Table
                     columns={columns}
                     data={topProductsData}
                     renderMobileRow={(item) => (
-                        <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
+                        <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 mb-4 last:mb-0">
                             <div className="flex justify-between items-start mb-4">
                                 <div className="space-y-1">
                                     <h3 className="text-sm font-bold text-slate-900 leading-tight">

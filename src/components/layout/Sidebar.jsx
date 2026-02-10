@@ -81,22 +81,22 @@ const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobileOpen })
                 </div>
 
                 {/* Navigation */}
-                <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+                <nav className="flex-1 px-4 py-6 space-y-6 overflow-y-auto">
                     {!isCollapsed && (
-                        <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-4 px-3">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 px-3">
                             Main Menu
                         </p>
                     )}
-                    <div className="space-y-1">
+                    <div className="flex flex-col space-y-2">
                         {menuItems.map((item) => (
                             <NavLink
                                 key={item.path}
                                 to={item.path}
                                 onClick={closeMobileMenu}
                                 className={({ isActive }) =>
-                                    `flex items-center space-x-3 px-3 py-2.5 rounded-lg transition-all duration-200 group relative
+                                    `flex items-center space-x-3.5 px-3.5 py-3 rounded-xl transition-all duration-200 group relative min-h-[48px]
                                     ${isActive
-                                        ? 'bg-blue-50/50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 font-medium'
+                                        ? 'bg-blue-600 shadow-lg shadow-blue-600/20 text-white font-bold'
                                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/40 hover:text-slate-900 dark:hover:text-slate-200'
                                     }
                                     ${isCollapsed ? 'justify-center px-0' : ''}
@@ -105,10 +105,10 @@ const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobileOpen })
                             >
                                 {({ isActive }) => (
                                     <>
-                                        <item.icon className={`w-5 h-5 flex-shrink-0 transition-colors ${isActive ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300'}`} />
-                                        {!isCollapsed && <span className="text-sm">{item.name}</span>}
-                                        {isActive && !isCollapsed && (
-                                            <div className="absolute left-0 w-1 h-5 bg-blue-600 dark:bg-blue-500 rounded-r-full" />
+                                        <item.icon className={`w-5 h-5 flex-shrink-0 transition-colors ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300'}`} />
+                                        {!isCollapsed && <span className="text-sm tracking-tight">{item.name}</span>}
+                                        {isActive && isCollapsed && (
+                                            <div className="absolute left-0 w-1 h-6 bg-white rounded-r-full" />
                                         )}
                                     </>
                                 )}

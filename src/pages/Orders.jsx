@@ -59,7 +59,7 @@ const OrdersPage = () => {
                 columns={columns}
                 data={orders}
                 renderMobileRow={(order) => (
-                    <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 active:bg-slate-50 transition-colors">
+                    <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 active:bg-slate-50 transition-colors mb-4 last:mb-0">
                         <div className="flex justify-between items-start mb-4">
                             <div className="space-y-1">
                                 <h3 className="text-sm font-bold text-slate-900 leading-tight">
@@ -70,7 +70,7 @@ const OrdersPage = () => {
                             <StatusBadge status={order.status} />
                         </div>
                         <div className="flex items-center justify-between pt-4 border-t border-slate-50">
-                            <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Amount</span>
+                            <span className="text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em]">Amount</span>
                             <span className="text-sm font-black text-slate-900">{formatCurrency(order.price)}</span>
                         </div>
                     </div>
