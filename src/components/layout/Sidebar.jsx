@@ -92,16 +92,16 @@ const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobileOpen })
                             Main Menu
                         </p>
                     )}
-                    <div className="flex flex-col space-y-4 md:space-y-1">
+                    <div className="flex flex-col space-y-4">
                         {menuItems.map((item) => (
                             <NavLink
                                 key={item.path}
                                 to={item.path}
                                 onClick={closeMobileMenu}
                                 className={({ isActive }) =>
-                                    `flex items-center space-x-4 md:space-x-3 px-4 py-3.5 md:px-3 md:py-2.5 rounded-2xl md:rounded-lg transition-all duration-200 group relative min-h-[52px] md:min-h-[auto]
+                                    `flex items-center space-x-4 p-3 rounded-2xl transition-all duration-300 group relative min-h-[48px]
                                     ${isActive
-                                        ? 'bg-blue-50/80 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 font-bold md:font-medium'
+                                        ? 'bg-blue-50/80 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 font-bold'
                                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/40 hover:text-slate-900 dark:hover:text-slate-200'
                                     }
                                     ${isCollapsed && !isMobileOpen ? 'justify-center px-0' : ''}
@@ -110,12 +110,16 @@ const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobileOpen })
                             >
                                 {({ isActive }) => (
                                     <>
-                                        <div className="w-6 h-6 flex items-center justify-center flex-shrink-0">
+                                        <div className={`w-10 h-10 flex items-center justify-center flex-shrink-0 rounded-xl transition-all duration-300 ${isActive ? 'bg-white dark:bg-slate-800 shadow-sm' : 'bg-transparent'}`}>
                                             <item.icon className={`w-5 h-5 transition-colors ${isActive ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300'}`} />
                                         </div>
-                                        {showLabels && <span className="text-sm tracking-tight">{item.name}</span>}
+                                        {showLabels && (
+                                            <span className="text-sm tracking-tight font-semibold">
+                                                {item.name}
+                                            </span>
+                                        )}
                                         {isActive && !isMobileOpen && (
-                                            <div className="absolute left-0 w-1 h-6 md:h-5 bg-blue-600 dark:bg-blue-500 rounded-r-full" />
+                                            <div className="absolute left-0 w-1.5 h-6 bg-blue-600 dark:bg-blue-500 rounded-r-full" />
                                         )}
                                     </>
                                 )}
