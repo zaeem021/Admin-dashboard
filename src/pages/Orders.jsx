@@ -52,23 +52,26 @@ const OrdersPage = () => {
     return (
         <div className="space-y-6 pb-8">
             <div className="space-y-1">
-                <h1 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">Orders</h1>
+                <h1 className="text-xl md:text-3xl font-black text-slate-900 tracking-tight">Orders</h1>
                 <p className="text-sm text-slate-500">Track recent customer transactions.</p>
             </div>
             <Table
                 columns={columns}
                 data={orders}
                 renderMobileRow={(order) => (
-                    <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
-                        <div className="mb-2">
-                            <h3 className="text-sm font-bold text-slate-900 line-clamp-2 leading-tight">
-                                {order.product}
-                            </h3>
-                            <span className="text-xs font-mono text-slate-400 mt-1 block">#{order.orderId}</span>
-                        </div>
-                        <div className="flex items-center justify-between border-t border-slate-50 pt-3 mt-3">
-                            <span className="text-sm font-black text-slate-800">{formatCurrency(order.price)}</span>
+                    <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 active:bg-slate-50 transition-colors">
+                        <div className="flex justify-between items-start mb-4">
+                            <div className="space-y-1">
+                                <h3 className="text-sm font-bold text-slate-900 leading-tight">
+                                    {order.product}
+                                </h3>
+                                <span className="text-[10px] font-mono text-slate-400 block tracking-tight">#{order.orderId}</span>
+                            </div>
                             <StatusBadge status={order.status} />
+                        </div>
+                        <div className="flex items-center justify-between pt-4 border-t border-slate-50">
+                            <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Amount</span>
+                            <span className="text-sm font-black text-slate-900">{formatCurrency(order.price)}</span>
                         </div>
                     </div>
                 )}

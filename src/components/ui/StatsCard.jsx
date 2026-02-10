@@ -4,7 +4,7 @@ const StatsCard = ({ icon: Icon, title, value, change, iconBgColor = 'bg-blue-60
     const isPositive = change >= 0;
 
     return (
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-5 md:p-6 hover:shadow-lg transition-all duration-300 group cursor-pointer w-full">
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-5 md:p-6 md:hover:shadow-lg transition-all duration-300 group cursor-pointer w-full active:scale-95 md:active:scale-100">
             <div className="flex flex-row items-center justify-between">
                 <div className="space-y-3">
                     <div className="space-y-1">
@@ -29,7 +29,7 @@ const StatsCard = ({ icon: Icon, title, value, change, iconBgColor = 'bg-blue-60
                     </div>
                 </div>
 
-                <div className={`p-3 md:p-4 rounded-xl ${iconBgColor} bg-opacity-10 group-hover:scale-105 transition-transform duration-300`}>
+                <div className={`p-3 md:p-4 rounded-xl ${iconBgColor} bg-opacity-10 md:group-hover:scale-105 transition-transform duration-300`}>
                     <Icon className={`w-6 h-6 md:w-7 md:h-7 ${iconBgColor.replace('bg-', 'text-')}`} />
                 </div>
             </div>

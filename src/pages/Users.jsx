@@ -47,22 +47,26 @@ const UsersPage = () => {
 
     return (
         <div className="space-y-6 pb-8">
-            <div className="space-y-1">
-                <h1 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">Users</h1>
-                <p className="text-sm text-slate-500">Manage your system members.</p>
+            {/* Page Header */}
+            <div>
+                <h1 className="text-xl md:text-3xl font-black text-slate-900 tracking-tight">Sales Analysis</h1>
+                <p className="text-sm text-slate-500 mt-1">Deep dive into sales performance.</p>
             </div>
             <Table
                 columns={columns}
                 data={users}
                 renderMobileRow={(user) => (
-                    <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 relative">
-                        <div className="flex flex-col space-y-1 mb-3">
-                            <span className="text-base font-bold text-slate-900">{user.name}</span>
-                            <span className="text-sm text-slate-500">{user.email}</span>
-                        </div>
-                        <div className="flex items-center justify-between border-t border-slate-50 pt-3">
+                    <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 active:bg-slate-50 transition-colors">
+                        <div className="flex items-center justify-between mb-4">
+                            <div className="flex flex-col">
+                                <span className="text-sm font-bold text-slate-900">{user.name}</span>
+                                <span className="text-xs text-slate-400 mt-0.5">{user.email}</span>
+                            </div>
                             <StatusBadge status={user.status} />
-                            <span className="text-xs font-semibold text-slate-400">{formatDate(user.joinedDate)}</span>
+                        </div>
+                        <div className="flex items-center justify-between pt-4 border-t border-slate-50">
+                            <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Joined Date</span>
+                            <span className="text-xs font-semibold text-slate-600">{formatDate(user.joinedDate)}</span>
                         </div>
                     </div>
                 )}

@@ -1,10 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 
 const Layout = ({ children }) => {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [isMobileOpen, setIsMobileOpen] = useState(false);
+
+    // Lock body scroll when mobile menu is open
+    useEffect(() => {
+        if (isMobileOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isMobileOpen]);
 
     return (
         <div className="min-h-screen bg-slate-50 transition-all overflow-x-hidden">
@@ -18,7 +30,7 @@ const Layout = ({ children }) => {
 
             {/* Main Content */}
             <div
-                className={`transition-all duration-300 ${isCollapsed ? 'md:ml-20' : 'md:ml-[260px]'
+                className={`transition-all duration-300 md:ml-[260px] ${isCollapsed ? 'md:!ml-20' : ''
                     }`}
             >
                 {/* Navbar */}

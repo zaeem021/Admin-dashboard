@@ -34,12 +34,12 @@ const Navbar = ({ onMenuClick }) => {
                     <div className="relative">
                         <button
                             onClick={() => setShowUserMenu(!showUserMenu)}
-                            className="flex items-center space-x-2 p-1 rounded-xl hover:bg-slate-100 transition-all duration-200"
+                            className="flex items-center space-x-2 p-1 rounded-xl hover:bg-slate-100 md:hover:bg-slate-100 transition-all duration-200"
                         >
                             <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center shadow-md shadow-blue-500/20 active:scale-95 transition-transform overflow-hidden">
                                 <User className="w-4 h-4 text-white" />
                             </div>
-                            <div className="hidden lg:block text-left mr-1">
+                            <div className="hidden md:block text-left mr-1">
                                 <p className="text-xs font-bold text-slate-800 leading-tight">Admin</p>
                             </div>
                         </button>
