@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
 
             {/* Main Content */}
             <div
-                className={`transition-all duration-300 md:ml-[260px] ${isCollapsed ? 'md:!ml-20' : ''
+                className={`transition-all duration-300 md:ml-[284px] ${isCollapsed ? 'md:!ml-[104px]' : ''
                     }`}
             >
                 {/* Navbar */}
